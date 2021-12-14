@@ -23,6 +23,10 @@ public class DriverUtil {
 		case "firefox":
 			driver = new FirefoxDriver();
 			break;
+		case "browserstack_chrome":
+			break;
+		case "browserstack_firefox":
+			break;
 		default:
 			throw new RuntimeException("Please provide correct browser parameter");
 		}

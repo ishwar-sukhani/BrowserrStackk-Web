@@ -7,4 +7,5 @@ public class Constants {
 	public static final String ENV = "PROD";
 	public static final String CHROME_EXE_PATH = "src/test/resources/chromedriver.exe";
 	public static final String CHROME_PROPERTY_KEY = "webdriver.chrome.driver";
+	public static final short MAX_WAIT_TIME = 30;
 }

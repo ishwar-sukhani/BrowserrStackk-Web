@@ -10,20 +10,31 @@ public class HomePage {
 	public WebDriver driver;
 	
 	@FindBy(xpath = "//div[@class='product-cards-wrapper--click']//a[@title='Automate']")
-	WebElement automateCard;
+	private WebElement automateCard;
 	
 	@FindBy(xpath = "//div[@class='product-cards-wrapper--click']//a[@title='Live']")
-	WebElement liveCard;
+	private WebElement liveCard;
 	
 	@FindBy(id = "product-menu-toggle")
-	WebElement productsMenu;
+	private WebElement productsMenu;
 	
 	@FindBy(xpath = "//div[@id='product-menu-dropdown']//li//a[@aria-label='Automate']")
-	WebElement automateInProductsMenu;
+	private WebElement automateInProductsMenu;
+
+	@FindBy(xpath = "accept-cookie-notification")
+	private WebElement acceptAllCookies;
+
+	@FindBy(xpath = "//nav[@id='primary-menu-container']//li//a[@title='Sign In']")
+	private WebElement signInLink;
 	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+	}
+
+	public void acceptCookies() {
+		acceptAllCookies.click();
+		System.out.println("[INFO] Accept Cookies clicked successfully");
 	}
 	
 	public void navigateToAutomateViaCard() {
@@ -39,6 +50,12 @@ public class HomePage {
 		}
 		automateInProductsMenu.click();
 		System.out.println("[INFO] Clicked Automate successfully from Products Menu");
+	}
+
+	public SignInPage navigateToSignInPage() {
+		signInLink.click();
+		System.out.println("[INFO] Clicked Automate successfully from Products Menu");
+		return new SignInPage(driver);
 	}
 
 }
